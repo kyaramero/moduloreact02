@@ -1,0 +1,10 @@
+.list {
+  padding: 1em;
+  width: 300px;
+  height: 100px;
+}
+
+.list p {
+  text-align: center;
+  font-size: 20px;
+}

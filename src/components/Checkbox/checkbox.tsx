@@ -7,17 +7,16 @@ import {
 } from './checkbox.style'
 
 export interface ICheckbox {
-  label: string
   checked: boolean
-  onChange: (params: any) => any
+  onChange: (params: any) => void
 }
 
-const Checkbox = ({ label, checked, onChange }: ICheckbox) => {
+const Checkbox = ({ checked, onChange }: ICheckbox) => {
   return (
     <CheckboxContainer checked={checked} onClick={onChange}>
-      <HiddenCheckbox checked={checked} onChange={onChange} />
+      <HiddenCheckbox checked={checked} />
       <StyledCheckbox />
-      <LabelCheckbox checked={checked}>{label}</LabelCheckbox>
+      <LabelCheckbox checked={checked}></LabelCheckbox>
     </CheckboxContainer>
   )
 }

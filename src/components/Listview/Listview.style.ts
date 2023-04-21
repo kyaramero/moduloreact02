@@ -23,6 +23,8 @@ export const Input = styled.input`
   width: 20%;
   height: 3em;
   border-radius: 50px;
+  padding: 1em;
+  border: none;
 `
 export const TaskContainer = styled.div`
   display: flex;
@@ -36,8 +38,13 @@ export const TaskItem = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  overflow-wrap: break-word;
   height: 5em;
   width: 95%;
   background-color: ${theme.secondaryColor};
   border-radius: 50px;
+  p {
+    width: 6em;
+    text-align: justify;
+  }
 `

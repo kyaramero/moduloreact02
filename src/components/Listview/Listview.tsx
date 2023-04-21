@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState, useMemo } from 'react'
 import {
   ListContainer,
   Input,
@@ -16,6 +16,14 @@ const Listview = () => {
   const [tasks, setTasks] = useState<ITask[]>([])
   const [newTaskLabel, setNewTaskLabel] = useState('')
   const [searchLabel, setSearchLabel] = useState('')
+
+  const tasksToComplete = useMemo(() => {
+    let numToComplete = 0
+    const toComplete = tasks.filter(task => {
+      if (task.isComplete === false) numToComplete++
+    })
+    return numToComplete
+  }, [tasks])
 
   const handleSearchLabel = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchLabel(e.target.value)
@@ -40,17 +48,16 @@ const Listview = () => {
   }
 
   const addTask = (label: string) => {
-    const id = nanoid()
     const alreadyExists = tasks.find(task =>
       task.label === label ? true : false
     )
     if (!alreadyExists) {
-      const currTask: ITask = { id: id, label: label, isComplete: false }
+      const currTask: ITask = { id: nanoid(), label: label, isComplete: false }
       const updateTasks = [...tasks, currTask]
       setTasks(updateTasks)
       saveTasks(updateTasks)
     } else {
-      alert('🚨Try another. This task alread exists!🥲')
+      alert('🚨Try another. This task already exists!🥲')
     }
   }
 
@@ -90,11 +97,13 @@ const Listview = () => {
 
   return (
     <>
+      <p>{tasksToComplete}</p>
       <Input
         placeholder="Add Task"
         value={newTaskLabel}
         onChange={handleTaskChange}
         onKeyPress={handleKeyPress}
+        autoFocus
       />
       <Input
         placeholder="Search Task"

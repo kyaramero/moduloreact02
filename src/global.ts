@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
         padding:0;
         background-color: ${theme.bg};
         color: ${theme.text};
+        font-family: 'Montserrat', sans-serif;
     }
 `
 

@@ -5,10 +5,11 @@ import {
   LabelCheckbox,
   StyledCheckbox,
 } from './checkbox.style'
+import { StyledComponent } from 'styled-components'
 
 export interface ICheckbox {
   checked: boolean
-  onChange: (params: any) => void
+  onChange: (params: any) => any
 }
 
 const Checkbox = ({ checked, onChange }: ICheckbox) => {

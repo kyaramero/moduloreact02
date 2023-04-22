@@ -4,7 +4,6 @@ import { theme } from '../../global'
 export const ListContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
   width: 40vw;
   height: 70vh;
   background-color: ${theme.primaryColor};
@@ -17,15 +16,6 @@ export const ListContainer = styled.div`
   }
 `
 
-export const LabelEmpty = styled.p``
-
-export const Input = styled.input`
-  width: 20%;
-  height: 3em;
-  border-radius: 50px;
-  padding: 1em;
-  border: none;
-`
 export const TaskContainer = styled.div`
   display: flex;
   flex-direction: column;

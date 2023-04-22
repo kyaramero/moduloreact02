@@ -1,20 +1,17 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import { InputPlace } from './style'
-
-interface IInput {
-  placeholder: string
-  value: string
-  onChange: (params: any) => any
-  onKeyPress: (params: any) => any
-}
+import { useTask } from '../../context/task.context'
 
 const Input = () => {
+  const { newTaskLabel, handleTaskChange, handleKeyPress } = useTask()
+
   return (
     <InputPlace
-    //   placeholder={placeholder}
-    //   value={value}
-    //   onChange={onChange}
-    //   onKeyPress={onKeyPress}
+      placeholder="Add a task"
+      value={newTaskLabel}
+      onChange={(e: ChangeEvent<HTMLInputElement>) => handleTaskChange(e)}
+      onKeyPress={(e: React.KeyboardEvent) => handleKeyPress(e)}
+      autoFocus
     />
   )
 }

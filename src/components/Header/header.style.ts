@@ -13,15 +13,3 @@ export const HeaderContainer = styled.div`
 export const HeaderTitle = styled.h1`
   color: ${theme.text};
 `
-
-export const AddTask = styled.button`
-  width: 50px;
-  height: 50px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-
-  img {
-    width: 30px;
-  }
-`

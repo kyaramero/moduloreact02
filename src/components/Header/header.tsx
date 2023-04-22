@@ -1,15 +1,12 @@
 import React from 'react'
-import { HeaderContainer, HeaderTitle, AddTask } from './header.style'
-import iconAdd from '../../assets/iconAdd.png'
+import { HeaderContainer, HeaderTitle } from './header.style'
+import Input from '../Input'
 
 const Header = () => {
   return (
     <HeaderContainer>
       <HeaderTitle>todo</HeaderTitle>
-
-      <AddTask>
-        <img src={iconAdd}></img>
-      </AddTask>
+      <Input />
     </HeaderContainer>
   )
 }
